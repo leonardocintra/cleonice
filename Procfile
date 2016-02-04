@@ -1,0 +1,1 @@
+web: gunicorn cleonice.wsgi --log-file -
