@@ -15,3 +15,7 @@ def about(request):
 def cake(request):
 	title = "Bolos"
 	return render(request, 'bolos.html', {'title': title })
+
+def cakeAdmin(request):
+	title = "Home"
+	return render(request, 'manage/product.html', {'title': title })
