@@ -11,3 +11,7 @@ def contact(request):
 def about(request):
 	title = "Sobre"
 	return render(request, 'sobre.html', {'title': title })
+
+def cake(request):
+	title = "Bolos"
+	return render(request, 'bolos.html', {'title': title })
