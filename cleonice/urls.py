@@ -6,6 +6,4 @@ urlpatterns = [
 	url(r'^sobre/', views.about), 
 	url(r'^contato/', views.contact), 
 	url(r'^bolos/', views.cake),
-
-	url(r'^admin/', views.cakeAdmin), 
 ]

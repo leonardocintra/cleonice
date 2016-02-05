@@ -6,7 +6,7 @@ Site shop for sales and orders for cakes and biscuits. Website also serves as ca
 - [Bolos e Biscoitos da Cleo](https://cleonice-prod.herokuapp.com/)
 
 ## Contact 
-- [Contact](https://cleonice-prod.herokuapp.com/contato/)
+- [See contact forms on the web site](https://cleonice-prod.herokuapp.com/contato/)
 
 ## Social Networks
 - [Facebook](https://www.facebook.com/BolosEBiscoitosDaCleo/)
