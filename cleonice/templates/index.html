@@ -53,15 +53,15 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Bolos e Biscoitos da Cleo</a>
+                        <a class="navbar-brand" href="/">Bolos e Biscoitos da Cleo</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Pagina Inicial</a></li>
+                            <li class="active"><a href="/">Pagina Inicial</a></li>
                             <li><a href="#">Bolos</a></li>
                             <li><a href="#">Biscoitos</a></li>
-                            <li><a href="#">Sobre</a></li>
-                            <li><a href="#">Contato</a></li>
+                            <li><a href="/sobre/">Sobre</a></li>
+                            <li><a href="/contato/">Contato</a></li>
                         </ul>
                     </div>
                 </div>
@@ -194,16 +194,7 @@
         <footer>
             <p class="pull-right"><a href="#">Voltar para o topo</a></p>
             <p>&copy; {% now "Y" %} Bolos e Biscoitos da Cleo &middot;</p>
-            <div id="fb-root"></div>
-            <script>
-                (function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=1628176097447356";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-            <div class="fb-like" data-href="https://www.facebook.com/BolosEBiscoitosDaCleo" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            {% include "includes/facebook.html" %}           
         </footer>
 
     </div><!-- /.container -->

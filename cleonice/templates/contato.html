@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<style type="text/css">
+    #map {
+        height: 50%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<div class="col-md-6">
+    <address>
+        Rua Professora Analia Alves Teixeira, 2661 <br />
+        Bairro: Jardim Tropical <br />
+        CEP: 14407-065 <br />
+        Franca - SP <br />
+        <abbr title="Phone">Telefone:</abbr>
+        (16) 3403-1607
+    </address>
+</div>
+<div class="col-md-6">
+    <div id="map"></div>
+</div>
+
+<address>
+    <strong>Suporte:</strong>   <a href="mailto:leonardo.ncintra@outlook.com">leonardo.ncintra@outlook.com</a><br />
+</address>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -20.50681, lng: -47.41827 },
+            zoom: 17
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-WlGdY7FuYsoYMCeO2Bb7DD_BJljqiQ&callback=initMap"
+        async defer></script>
+{% endblock %}
