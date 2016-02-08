@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Product
 
 def index(request):
 	title = "Home"
@@ -12,6 +13,13 @@ def about(request):
 	title = "Sobre"
 	return render(request, 'sobre.html', {'title': title })
 
-def cake(request):
+def cakes(request):
 	title = "Bolos"
-	return render(request, 'bolos.html', {'title': title })
+	cakes = Product.objects.all()
+	return render(request, 'bolos.html', {'cakes': cakes, 'title': title })
+
+def product(request, pk):
+	title = "Bolo"
+	prod = get_object_or_404(Product, pk=pk)
+	return render(request, 'bolo.html', {'prod': prod, 'title': title })
+

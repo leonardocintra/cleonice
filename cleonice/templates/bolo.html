@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% load cloudinary %}
+
+{% block content %}
+	<h1> {{ prod.product_name }} </h1>
+	{% cloudinary "produto-sem-imagem" width=300 height=300 crop="fill" %}
+{% endblock %}
