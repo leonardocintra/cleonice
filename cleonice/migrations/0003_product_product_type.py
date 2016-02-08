@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='product_type',
-            field=models.CharField(choices=[('BO', 'Bolo'), ('BI', 'Biscoito')], default='BO', max_length=1),
+            field=models.CharField(choices=[('BO', 'Bolo'), ('BI', 'Biscoito')], default='BO', max_length=2),
         ),
     ]
