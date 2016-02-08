@@ -9,7 +9,7 @@ class Product(models.Model):
 		('BI', 'Biscoito'),
 	)
 
-	name = models.CharField(max_length=100, null=False)
+	name = models.CharField()
 
 	def __str__ (self):
 		return self.name
