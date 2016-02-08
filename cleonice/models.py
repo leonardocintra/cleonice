@@ -9,7 +9,7 @@ class Product(models.Model):
 		('BI', 'Biscoito'),
 	)
 
-	product_name = models.CharField('Nome', max_length=200)
+	product_name = models.CharField(max_length=200)
 	#description = models.TextField('Descrição')
 	#price = models.DecimalField(decimal_places=2, max_digits=10)
 	#published_date = models.DateTimeField(auto_now_add=True)
