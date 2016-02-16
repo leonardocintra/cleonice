@@ -3,8 +3,14 @@
 {% load cloudinary %}
 
 {% block content %}
-	<h1> {{ prod.product_name }} </h1>
+	<h1> {{ product.product_name }} </h1>
 	<p>
-		{% cloudinary "sample" width=300 height=300 crop="fill" %}
+	{% if photos %}
+		{% for photo in photos %}
+			{% cloudinary photo.image %}
+		{% endfor %}
+	{% else %}
+		{% cloudinary "produto-sem-imagem" width=350 height=300 crop="fill" %}
+	{% endif %}
 	</p>
 {% endblock %}

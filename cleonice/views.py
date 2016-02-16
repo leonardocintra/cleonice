@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, ProductImage
 
 def index(request):
 	title = "Home"
@@ -16,10 +16,19 @@ def about(request):
 def cakes(request):
 	title = "Bolos"
 	cakes = Product.objects.all()
-	return render(request, 'bolos.html', {'cakes': cakes, 'title': title })
+
+	return render(request, 'bolos.html', {
+		'cakes': cakes, 
+		'title': title 
+	})
 
 def product(request, pk):
 	title = "Bolo"
-	prod = get_object_or_404(Product, pk=pk)
-	return render(request, 'bolo.html', {'prod': prod, 'title': title })
+	product = get_object_or_404(Product, pk=pk)
+	photos = ProductImage.objects.all().filter(product=product.pk)
+
+	return render(request, 'bolo.html', {
+		'product': product, 
+		'photos': photos,
+		'title': title })
 
