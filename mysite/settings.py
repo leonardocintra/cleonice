@@ -82,9 +82,9 @@ ALLOWED_HOSTS = ['*']
 
 # Cloudinary
 CLOUDINARY = {
-  'cloud_name': 'bolosdacleo',  
-  'api_key': '182946961533113',  
-  'api_secret': 'LAIVTLNHtG5x-TTdUmHgaE3CnsM',  
+  'cloud_name': 'cleonice',  
+  'api_key': '551987473855776',  
+  'api_secret': 'r98V2i9Sq6b9r0g3Xn2ZiHnnPpA',  
 }
 
 
