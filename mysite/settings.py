@@ -82,9 +82,9 @@ ALLOWED_HOSTS = ['*']
 
 # Cloudinary
 CLOUDINARY = {
-  'cloud_name': 'cleonice',  
-  'api_key': '551987473855776',  
-  'api_secret': 'r98V2i9Sq6b9r0g3Xn2ZiHnnPpA',  
+  'cloud_name': os.environ['CLOUD_NAME'],
+  'api_key': os.environ['API_KEY'],
+  'api_secret': os.environ['API_SECRET']
 }
 
 # Email
