@@ -1,5 +1,10 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.mail import send_mail
+
+from cleonice.forms import FormContact
 from .models import Product, ProductImage
+
+
 
 def index(request):
 	title = "Home"
@@ -7,7 +12,20 @@ def index(request):
 
 def contact(request):
 	title = "Contato"
-	return render(request, 'contato.html', {'title': title })
+	if request.method == "POST":
+		form = FormContact(request.POST)
+		if form.is_valid():
+			recipient = ['emaildevleonardo@gmail.com']
+			sender = form.cleaned_data['email']
+			subject = "CONTATO - " + form.cleaned_data['name']
+			message = " TELEFONE: " + form.cleaned_data['phone'] + "\n MENSAGEM:" + form.cleaned_data['message'] + "\n EMAIL: " + form.cleaned_data['email']
+			print("Contact: email sent to: " + sender)
+			send_mail(subject, message, sender, recipient)
+			return render(request, 'contato.html', {'form': FormContact(), 'send': True, 'title': title })
+	else:
+		form = FormContact()			
+
+	return render(request, 'contato.html', {'title': title, 'form':form })
 
 def about(request):
 	title = "Sobre"

@@ -11,19 +11,51 @@
 {% block content %}
 
 <h2>{{ title }}.</h2>
-
-<div class="col-md-6">
-    <address>
-        Rua Professora Analia Alves Teixeira, 2661 <br />
-        Bairro: Jardim Tropical <br />
-        CEP: 14407-065 <br />
-        Franca - SP <br />
-        <abbr title="Phone">Telefone:</abbr>
-        (16) 3403-1607
-    </address>
+<div class="row">
+    <div class="col-md-6">
+        <address>
+            Rua Professora Analia Alves Teixeira, 2661 <br />
+            Bairro: Jardim Tropical <br />
+            CEP: 14407-065 <br />
+            Franca - SP <br />
+            <abbr title="Phone">Telefone:</abbr>
+            (16) 3403-1607
+        </address>
+    </div>
+    <div class="col-md-6">
+        <div id="map"></div>
+    </div>
 </div>
-<div class="col-md-6">
-    <div id="map"></div>
+<div class="row">
+    <div class="col-md-6">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                Por favor, corrija o{{ form.errors|pluralize }} erro{{ form.errors|pluralize }} abaixo:
+            </div>
+        {% endif%}
+
+        {% if send %}
+            <div class="alert alert-success alert-dismissable">
+                E-mail enviado com sucesso! Em breve entramos em contato!
+            </div>
+        {% endif %}
+        
+        <form action="/contato/" method="POST">
+            {% csrf_token %}
+            <div class="form-horizontal">
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for={{ field.label_tag }}> {{ field_label_tag }} </label>
+                        {{ field }}
+                        <span class="help-block">{{ field.errors.as_text }}</span>
+                    </div>
+                {% endfor %}
+                <div class="col-md-offset-3 col-md-10 lead">
+                    <button type="submit" class="btn btn-primary">Enviar menssagem</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <address>
