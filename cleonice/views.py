@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 
@@ -15,7 +16,7 @@ def contact(request):
 	if request.method == "POST":
 		form = FormContact(request.POST)
 		if form.is_valid():
-			recipient = ['emaildevleonardo@gmail.com']
+			recipient = [os.environ['EMAIL_HOST_USER']]
 			sender = form.cleaned_data['email']
 			subject = "CONTATO - " + form.cleaned_data['name']
 			message = " TELEFONE: " + form.cleaned_data['phone'] + "\n MENSAGEM:" + form.cleaned_data['message'] + "\n EMAIL: " + form.cleaned_data['email']
