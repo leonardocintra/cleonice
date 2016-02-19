@@ -34,7 +34,7 @@ def about(request):
 
 def cakes(request):
 	title = "Bolos"
-	cakes = Product.objects.all()
+	cakes = ProductImage.objects.all()
 
 	return render(request, 'bolos.html', {
 		'cakes': cakes, 
