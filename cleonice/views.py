@@ -6,7 +6,6 @@ from cleonice.forms import FormContact
 from .models import Product, ProductImage, IndexMediaCarrousel, IndexMediaCircle, IndexMediaPhotoFeatured
 
 
-
 def index(request):
 	title = "Home"
 	carrousels = IndexMediaCarrousel.objects.all()

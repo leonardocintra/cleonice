@@ -1,4 +1,5 @@
 ﻿{% load cloudinary %}
+{% load global_util %}
 
 <!DOCTYPE html>
 <html>
@@ -80,7 +81,6 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
         <!-- Three columns of text below the carousel -->
         <div class="row">
             {% for circle in circles %}
@@ -94,43 +94,30 @@
         </div><!-- /.row -->
         <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider">
+        {% for photo in photosFeature %}
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Cada criança com seu estilo. <span class="text-muted">Bolos decorativos.</span></h2>
-                <p class="lead">Peça bolos com fotos personalizadas. Fotos de heróis, personagens famosos, etc,. Coloque o bolo no tema da festa!</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" src="/static/images/bolos/barbie.jpg" alt="Generic placeholder image">
-            </div>
-        </div>
+            {% if forloop.counter|mod:2 %}
+                {% with "col-md-7" as divClassDescript %}{% endwith%}
+                {% with "col-md-5" as divClassImage %}{% endwith%}
+            {% else %}
+                {% with "col-md-7 col-md-push-5" as divClassDescript %}{% endwith%}
+                {% with "col-md-5 col-md-pull-7" as divClassImage %}{% endwith%}
+            {% endif%}
 
-        <hr class="featurette-divider">
+            <hr class="featurette-divider">
 
-        <div class="row featurette">
-            <div class="col-md-7 col-md-push-5">
-                <h2 class="featurette-heading">Veja que delicia!. <span class="text-muted">Veja como fazemos.</span></h2>
-                <p class="lead">Nossos bolos são os mais saborosos, temos dedicação e carinho há mais de 15 anos!.</p>
+            <div class="row featurette">
+                <div class="{{ divClassDescript }}">
+                    <h2 class="featurette-heading">Cada criança com seu estilo. <span class="text-muted">Bolos decorativos.</span></h2>
+                    <p class="lead">Peça bolos com fotos personalizadas. Fotos de heróis, personagens famosos, etc,. Coloque o bolo no tema da festa!</p>
+                </div>
+                <div class="{{ divClassImage }}">
+                    <img class="featurette-image img-responsive center-block" src="/static/images/bolos/barbie.jpg" alt="Generic placeholder image">
+                </div>
             </div>
-            <div class="col-md-5 col-md-pull-7">
-                <img class="featurette-image img-responsive center-block" src="/static/images/bolos/boloflor1.jpg" alt="Generic placeholder image">
-            </div>
-        </div>
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Temos biscoitos. <span class="text-muted">E muito mais!</span></h2>
-                <p class="lead">Também temos os deliciosos Biscoitos da Cleo. Varios sabores.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" src="/static/images/biscoitos/biscoitos.jpg" alt="Generic placeholder image">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
+            <hr class="featurette-divider">
+        {% endfor %}
 
         <!-- /END THE FEATURETTES -->
         <!-- FOOTER -->
