@@ -3,13 +3,22 @@ from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 
 from cleonice.forms import FormContact
-from .models import Product, ProductImage
+from .models import Product, ProductImage, IndexMediaCarrousel, IndexMediaCircle, IndexMediaPhotoFeatured
 
 
 
 def index(request):
 	title = "Home"
-	return render(request, 'index.html', {'title': title })
+	carrousels = IndexMediaCarrousel.objects.all()
+	circles = IndexMediaCircle.objects.all()
+	photosFeature = IndexMediaPhotoFeatured.objects.all()
+
+	return render(request, 'index.html', {
+		'title': title, 
+		'carrousels':carrousels,
+		'circles': circles,
+		'photosFeature': photosFeature,
+	})
 
 def contact(request):
 	title = "Contato"
@@ -50,4 +59,3 @@ def product(request, pk):
 		'product': product, 
 		'photos': photos,
 		'title': title })
-
