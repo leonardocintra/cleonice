@@ -35,6 +35,7 @@ class IndexMediaCarrousel(models.Model):
 	carrousel_title = models.CharField('Titulo carrousel', max_length=200)
 	carrousel_substitle = models.CharField('Substitulo carrousel', max_length=200)
 	carrousel_image = CloudinaryField('Carrousel')
+	slide_active = models.BooleanField('Ativo', default=False)
 	published_date = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
