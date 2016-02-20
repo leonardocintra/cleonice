@@ -1,3 +1,5 @@
+{% load cloudinary %}
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -9,7 +11,7 @@
         {% if carrousels.count = 3 %}
             {% for carrousel in carrousels %}
                 <div class="item {% if carrousel.slide_active %} active{% endif %}">
-                    <img class="{{ carrousel.get_order_slide_display }}" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="{{ carrousel.carrousel_title }}">    
+                    {% cloudinary carrousel.carrousel_image %}
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>{{ carrousel.carrousel_title }}</h1>

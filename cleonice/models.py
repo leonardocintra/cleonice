@@ -32,17 +32,9 @@ class ProductImage(models.Model):
 
 
 class IndexMediaCarrousel(models.Model):
-	ORDER_SLIDE = (
-		('FS', 'first-slide'),
-		('SS', 'second-slide'),
-		('TS', 'third-slide'),
-	)
-
 	carrousel_title = models.CharField('Titulo carrousel', max_length=200)
 	carrousel_substitle = models.CharField('Substitulo carrousel', max_length=200)
-	carrousel = CloudinaryField('Carrousel')
-	order_slide = models.CharField('Ordem slide', choices=ORDER_SLIDE, unique=True, max_length=2)
-	slide_active = models.BooleanField('Ativo', default=False)
+	carrousel_image = CloudinaryField('Carrousel')
 	published_date = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
@@ -52,7 +44,7 @@ class IndexMediaCarrousel(models.Model):
 class IndexMediaCircle(models.Model):
 	circle_title = models.CharField('Titulo circulo', max_length=200)
 	circle_substitle = models.CharField('Substitulo circulo', max_length=200)
-	circle = CloudinaryField('Imagem circulo')
+	circle_image = CloudinaryField('Imagem circulo')
 	published_date = models.DateTimeField(auto_now_add=True)	
 
 	def __str__(self):
@@ -62,7 +54,7 @@ class IndexMediaCircle(models.Model):
 class IndexMediaPhotoFeatured(models.Model):
 	photo_featured_title = models.CharField('Titulo imagem destaque', max_length=200)
 	photo_featured_substitle = models.CharField('Substitulo imagem destaque', max_length=200)
-	photo_featured = CloudinaryField('Foto destaque')
+	photo_featured_image = CloudinaryField('Foto destaque')
 	published_date = models.DateTimeField(auto_now_add=True)	
 
 	def __str__(self):
