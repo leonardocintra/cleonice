@@ -1,9 +1,6 @@
-from django import template
 from django.db import models
 from django.utils import timezone
 from cloudinary.models import CloudinaryField
-
-register = template.Library()
 
 
 class Product(models.Model):
@@ -57,6 +54,7 @@ class IndexMediaCircle(models.Model):
 
 class IndexMediaPhotoFeatured(models.Model):
 	photo_featured_title = models.CharField('Titulo imagem destaque', max_length=200)
+	photo_featured_title_silver = models.CharField('Titulo cinza', max_length=200, default='')
 	photo_featured_substitle = models.CharField('Substitulo imagem destaque', max_length=200)
 	photo_featured_image = CloudinaryField('Foto destaque')
 	published_date = models.DateTimeField(auto_now_add=True)

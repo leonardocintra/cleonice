@@ -95,26 +95,29 @@
         <!-- START THE FEATURETTES -->
 
         {% for photo in photosFeature %}
-
-            {% if forloop.counter|mod:2 %}
-                {% with "col-md-7" as divClassDescript %}{% endwith%}
-                {% with "col-md-5" as divClassImage %}{% endwith%}
-            {% else %}
-                {% with "col-md-7 col-md-push-5" as divClassDescript %}{% endwith%}
-                {% with "col-md-5 col-md-pull-7" as divClassImage %}{% endwith%}
-            {% endif%}
-
             <hr class="featurette-divider">
 
-            <div class="row featurette">
-                <div class="{{ divClassDescript }}">
-                    <h2 class="featurette-heading">Cada criança com seu estilo. <span class="text-muted">Bolos decorativos.</span></h2>
-                    <p class="lead">Peça bolos com fotos personalizadas. Fotos de heróis, personagens famosos, etc,. Coloque o bolo no tema da festa!</p>
+            {% if forloop.counter0|mod:2 %}
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading">{{ photo.photo_featured_title }} <span class="text-muted">{{ photo.photo_featured_title_silver }}</span></h2>
+                        <p class="lead">{{ photo.photo_featured_substitle }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        {% cloudinary photo.photo_featured_image class="featurette-image img-responsive center-block" alt=photo.photo_featured_title %}
+                    </div>
                 </div>
-                <div class="{{ divClassImage }}">
-                    <img class="featurette-image img-responsive center-block" src="/static/images/bolos/barbie.jpg" alt="Generic placeholder image">
+            {% else %}
+                <div class="row featurette">
+                    <div class="col-md-7 col-md-push-5">
+                        <h2 class="featurette-heading">{{ photo.photo_featured_title }} <span class="text-muted">{{ photo.photo_featured_title_silver }}</span></h2>
+                        <p class="lead">{{ photo.photo_featured_substitle }}</p>
+                    </div>
+                    <div class="col-md-5 col-md-pull-7">
+                        {% cloudinary photo.photo_featured_image class="featurette-image img-responsive center-block" alt=photo.photo_featured_title %}
+                    </div>
                 </div>
-            </div>
+            {% endif%}
 
             <hr class="featurette-divider">
         {% endfor %}
