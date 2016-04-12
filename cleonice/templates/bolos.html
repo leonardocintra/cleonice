@@ -11,11 +11,14 @@
     {% for cake in cakes %}
         <div class="col-sm-4 col-md-4">
             <div class="thumbnail">
-                {% cloudinary cake.image width=340 height=200 crop="fill" %}    
+                {% for image in cake.productimage_set.all %}
+                    {% cloudinary image.image width=340 height=200 crop="fill" %}    
+                {% endfor %}
+                
                 <div class="caption">
-                    <h3>{{ cake.product.product_name }}</h3>
+                    <h3>{{ cake.product_name }}</h3>
                     <p>{{ cake.description }}</p>
-                    <p><a href="{% url 'product' pk=cake.pk %}">{{ cake.product.product_name }}</a></p>
+                    <p><a href="{% url 'product' pk=cake.id %}" class="btn btn-warning">{{ cake.product_name }}</a></p>
                 </div>
             </div>
         </div>
