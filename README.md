@@ -2,6 +2,8 @@
 
 Site shop for sales and orders for cakes and biscuits. Website also serves as catalog
 
+[![Build Status](https://travis-ci.org/leonardocintra/cleonice.svg?branch=master)](https://travis-ci.org/leonardocintra/cleonice)
+
 ## Installation
 
 ### Language and Frameworks
