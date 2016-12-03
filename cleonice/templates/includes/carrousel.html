@@ -8,7 +8,7 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-        {% if carrousels.count = 3 %}
+        {% if carrousels.count == 3 %}
             {% for carrousel in carrousels %}
                 <div class="item {% if carrousel.slide_active %} active{% endif %}">
                     {% cloudinary carrousel.carrousel_image %}

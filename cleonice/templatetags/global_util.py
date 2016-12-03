@@ -19,7 +19,6 @@ def mod(value, arg):
 """""""""
  Outhers
 """""""""
-
 @register.tag(name='current_time')
 def do_current_time(parser, token):
 	try:
