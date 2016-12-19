@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 
 from cleonice.forms import FormContact
-from .models import Product, ProductImage, IndexMediaCarrousel, IndexMediaCircle, IndexMediaPhotoFeatured
+from .models import IndexMediaCarrousel, IndexMediaCircle, IndexMediaPhotoFeatured
 
 
 def index(request):
@@ -40,6 +40,8 @@ def about(request):
 	title = "Sobre"
 	return render(request, 'sobre.html', {'title': title })
 
+
+"""
 def cakes(request):
 	title = "Bolos"
 	cakes = Product.objects.all()
@@ -58,3 +60,4 @@ def product(request, pk):
 		'product': product, 
 		'photos': photos,
 		'title': title })
+"""
