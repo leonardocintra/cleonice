@@ -2,7 +2,7 @@ import os
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 
-from cleonice.forms import FormContact
+from .forms import FormContact
 from .models import IndexMediaCarrousel, IndexMediaCircle, IndexMediaPhotoFeatured
 
 
