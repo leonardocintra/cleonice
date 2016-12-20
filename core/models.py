@@ -9,6 +9,7 @@ class IndexMediaCarrousel(models.Model):
 	carrousel_image = CloudinaryField('Carrousel')
 	slide_active = models.BooleanField('Ativo', default=False)
 	published_date = models.DateTimeField(auto_now_add=True)
+	user_add = models.CharField('Usuario', max_length=100, blank=True, null=True)
 
 	def __str__(self):
 		return self.carrousel_title	
@@ -18,7 +19,8 @@ class IndexMediaCircle(models.Model):
 	circle_title = models.CharField('Titulo circulo', max_length=200)
 	circle_substitle = models.CharField('Substitulo circulo', max_length=200)
 	circle_image = CloudinaryField('Imagem circulo')
-	published_date = models.DateTimeField(auto_now_add=True)	
+	published_date = models.DateTimeField(auto_now_add=True)
+	user_add = models.CharField('Usuario', max_length=100, blank=True, null=True)
 
 	def __str__(self):
 		return self.circle_title
@@ -30,6 +32,7 @@ class IndexMediaPhotoFeatured(models.Model):
 	photo_featured_substitle = models.CharField('Substitulo imagem destaque', max_length=200)
 	photo_featured_image = CloudinaryField('Foto destaque')
 	published_date = models.DateTimeField(auto_now_add=True)
+	user_add = models.CharField('Usuario', max_length=100, blank=True, null=True)
 
 	def __str__(self):
 		return self.photo_featured_title

@@ -2,14 +2,19 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%gq4$!jxp9-x&!8ko8r@#r1a-r8cncfx5_il0d)8s_p41=4%ml'
+SECRET_KEY = '#%=-5-*b+l-%q7qf7w!i&fnm2#_mv80vy!fbq!mt$vhy06r)57'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -28,18 +33,17 @@ INSTALLED_APPS = [
     'catalog',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'cleonice.urls'
 
 TEMPLATES = [
     {
@@ -57,10 +61,11 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'cleonice.wsgi.application'
+
 
 # Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -92,8 +97,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'emaildevleonardo@gmail.com')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'julianarosarodrigues')
 
+
 # Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -112,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
+# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
 
