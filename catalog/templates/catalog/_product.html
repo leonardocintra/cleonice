@@ -4,10 +4,12 @@
             <img src="http://placehold.it/350x250" alt="{{ product.name }}" />
         </a>
         <div class="caption">
-            <h3>{{ product.name }} {{ product.pk }} </h3>
+            <h3>{{ product.name }}</h3>
+            
             <p>{{ product.description|linebreaks }}</p>
             <p>
-                <a href="{{ product.get_absolute_url }}" class="btn btn-success" role="button">Detalhes</a> 
+                <a href="{{ product.get_absolute_url }}" class="btn btn-success" role="button">Detalhes</a>                 
+            </p>
         </div>
     </div>
 </div>
