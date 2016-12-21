@@ -25,5 +25,13 @@ class CategoryListView(generic.ListView):
         return context
 
 
+def product(request, slug):
+    product = Product.objects.get(slug=slug)
+    context = {
+        'product': product
+    }
+    return render(request, 'catalog/product.html', context)
+
+
 product_list = ProductListView.as_view()
 category = CategoryListView.as_view()

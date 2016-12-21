@@ -8,7 +8,6 @@
             <p>{{ product.description|linebreaks }}</p>
             <p>
                 <a href="{{ product.get_absolute_url }}" class="btn btn-success" role="button">Detalhes</a> 
-                <a href="{% url 'checkout:create_cartitem' product.slug %}" class="btn btn-default" role="button">Adicionar</a></p>
         </div>
     </div>
 </div>
