@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
-from .models import Product, Category
+from .models import Product, Category, ProductImage
 
 
 class ProductListView(generic.ListView):
@@ -11,7 +11,11 @@ class ProductListView(generic.ListView):
     paginate_by = 10
 
 
+
 class CategoryListView(generic.ListView):
+    """
+    Lista os produtos de determinada categoria (Bolo ou Biscoitos)
+    """
     template_name = 'catalog/category.html'
     context_object_name = 'product_list'
     paginate_by = 10
