@@ -11,7 +11,7 @@
     <meta name="author" content="Leonardo Nascimento Cintra">
     <link rel="icon" type="image/png" href="/static/favicon.ico">
 
-    <title>{{ title }} - Biscoitos da Cleo</title>
+    <title> {% block title %} Home {% endblock title %} - Biscoitos da Cleo</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
@@ -63,7 +63,7 @@
                             <li class="active"><a href="/">Pagina Inicial</a></li>
                             <li><a href="{% url 'catalog:category' 'bolos' %}">Bolos</a></li>
                             <li><a href="#">Biscoitos</a></li>
-                            <li><a href="#">Sobre</a></li>
+                            <li><a href="{% url 'about' %}">Sobre</a></li>
                             <li><a href="{% url 'contact' %}">Contato</a></li>
                         </ul>
                         {% include "includes/linkAdmin.html" %}

@@ -1,23 +1,24 @@
 import os
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
+from django.views.generic import TemplateView
 
 from .forms import FormContact
 from .models import IndexMediaCarrousel, IndexMediaCircle, IndexMediaPhotoFeatured
 
 
 def index(request):
-	title = "Home"
 	carrousels = IndexMediaCarrousel.objects.all()
 	circles = IndexMediaCircle.objects.all()
 	photosFeature = IndexMediaPhotoFeatured.objects.all()
 
-	return render(request, 'index.html', {
-		'title': title, 
+	context = {
 		'carrousels':carrousels,
 		'circles': circles,
 		'photosFeature': photosFeature,
-	})
+	}
+
+	return render(request, 'index.html', context)
 
 def contact(request):
 	title = "Contato"
@@ -36,28 +37,9 @@ def contact(request):
 
 	return render(request, 'contato.html', {'title': title, 'form':form })
 
-def about(request):
-	title = "Sobre"
-	return render(request, 'sobre.html', {'title': title })
+
+class AboutView(TemplateView):
+	template_name = 'sobre.html'
 
 
-"""
-def cakes(request):
-	title = "Bolos"
-	cakes = Product.objects.all()
-
-	return render(request, 'bolos.html', {
-		'cakes': cakes,
-		'title': title 
-	})
-
-def product(request, pk):
-	title = "Bolo"
-	product = get_object_or_404(Product, pk=pk)
-	photos = ProductImage.objects.all().filter(product=product.pk)
-
-	return render(request, 'bolo.html', {
-		'product': product, 
-		'photos': photos,
-		'title': title })
-"""
+about = AboutView.as_view()

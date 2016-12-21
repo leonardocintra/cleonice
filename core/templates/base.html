@@ -36,9 +36,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="#">Bolos</a></li>
+                    <li><a href="{% url 'catalog:category' 'bolos' %}">Bolos</a></li>
                     <li><a href="#">Biscoitos</a></li>
-                    <li><a href="/sobre/">Sobre</a></li>
+                    <li><a href="{% url 'about' %}">Sobre</a></li>
                     <li><a href="{% url 'contact' %}">Contato</a></li>
                 </ul>
                 {% include "includes/linkAdmin.html" %}
