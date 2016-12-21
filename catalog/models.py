@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import permalink
 from django.core.urlresolvers import reverse
 from cloudinary.models import CloudinaryField
 
