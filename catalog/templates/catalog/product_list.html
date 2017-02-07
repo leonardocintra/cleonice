@@ -7,14 +7,28 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page-header">
-        <h1>Produtos</h1>
+
+    <div class="container">
+        <h1 class="header">Produtos</h1>
     </div>
+
     <div class="row">
         {% for product in product_list %}
+        
             {% include "catalog/_product.html" %}
+        {% empty %}
+            <h3>Desculpe, não temos nenhum produto cadastrado no momento</h3>
         {% endfor %}
     </div>
 
-    {% pagination request paginator page_obj %}
+    {# {% pagination request paginator page_obj %} #} 
+
 {% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        });
+    </script>
+{% endblock scripts %}
