@@ -18,10 +18,14 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cake</i> Bolos da Cleo</a>
       <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'index' %}">Bolos</a></li>
+        <li><a href="{% url 'index' %}">Biscoitos</a></li>
         <li><a href="{% url 'contact' %}">Contato</a></li>
         <li><a href="{% url 'about' %}">Quem somos</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
+        <li><a href="{% url 'index' %}">Bolos</a></li>
+        <li><a href="{% url 'index' %}">Biscoitos</a></li>
         <li><a href="{% url 'contact' %}">Contato</a></li>
         <li><a href="{% url 'about' %}">Quem somos</a></li>
       </ul>
@@ -33,12 +37,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">Bolos e Biscoitos da Cleo</h1>
+        <h1 class="header center">Bolos e Biscoitos da Cleo</h1>
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+          <h5 class="header col s12 light">Deliciosos bolos caseiros para anverśarios, noivados, etc</h5>
         </div>
         <br><br>
 
@@ -55,28 +56,22 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <h2 class="center brown-text"><i class="material-icons">cake</i></h2>
+            <h5 class="center">Especialista</h5>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            <h2 class="center orange-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Compromisso</h5>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <h2 class="center green-text"><i class="material-icons">watch_later</i></h2>
+            <h5 class="center">Sem atrasos</h5>
           </div>
         </div>
       </div>
@@ -89,7 +84,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 red-text"> Feito com amor e carinho <i class="material-icons">favorite</i> </h5>
         </div>
       </div>
     </div>
@@ -102,8 +97,9 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          <h4>Faça sua emcomenda!</h4>
+          <p class="center light">Ligue agora e solicite seu bolo. Veja nosso catalogo para ajudar na escolha.</p>
+          {% include "includes/indexCarrousel.html" %}
         </div>
       </div>
 
@@ -115,7 +111,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">Diversos modelos, sabores, tipos etc para você escolher <i class="material-icons">extension</i></h5>
         </div>
       </div>
     </div>
@@ -130,6 +126,11 @@
   <script src="{% static '/materialize/js/materialize.js' %}"></script>
   <script>
       (function($){
+
+        $(document).ready(function(){
+          $('.carousel').carousel();
+        });
+
         $(function(){
 
             $('.button-collapse').sideNav();
