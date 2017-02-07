@@ -38,19 +38,25 @@
     </script>
 </head>
 <body>
-    <nav class="pink lighten-3" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cake</i> Bolos da Cleo</a>
+
+    <nav class="pink {% block corHeader %} lighten-3 {% endblock corHeader %}" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cake</i> Bolos da Cleo</a>
             <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'index' %}">Bolos</a></li>
+                <li><a href="{% url 'index' %}">Biscoitos</a></li>
                 <li><a href="{% url 'contact' %}">Contato</a></li>
                 <li><a href="{% url 'about' %}">Quem somos</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
+                <li><a href="{% url 'index' %}">Bolos</a></li>
+                <li><a href="{% url 'index' %}">Biscoitos</a></li>
                 <li><a href="{% url 'contact' %}">Contato</a></li>
                 <li><a href="{% url 'about' %}">Quem somos</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
-    </nav>   
+    </nav>
 
     {% block content %}
     
@@ -70,5 +76,6 @@
             }); // end of document ready
         })(jQuery); // end of jQuery name space
     </script>
+    {% block scripts %}{% endblock scripts %}
 </body>
 </html>
