@@ -5,10 +5,11 @@
 {% block title %}
     {{ current_category }} | {{ block.super}}
 {% endblock %}
+{% block corHeader %} deep-orange {% endblock corHeader %}
 
 {% block content %}
-    <div class="page-header">
-        <h1>{{ current_category.name }}</h1>
+    <div class="container">
+        <h2 class="green-text text-accent-3"></a><small>Categoria: </small> {{ current_category.name }}</h2>
     </div>
     <div class="row">
         {% for product in product_list %}
@@ -16,5 +17,7 @@
         {% endfor %}
     </div>
 
-    {% pagination request paginator page_obj %}
+    <div class="container">
+        {% pagination request paginator page_obj %}
+    </div>
 {% endblock content %}

@@ -1,8 +1,11 @@
 
 <ul class="pagination">
+    {# precia arrumar essa paginacao (anterior e proximo) #}
+    <li class="disabled"><a href="?page={{ page }}{{ getvars }}"><i class="material-icons">chevron_left</i></a></li>
     {% for page in paginator.page_range %}
         <li {% if page_obj.number == page %} class="active"{% endif %}>
             <a href="?page={{ page }}{{ getvars}}">{{ page }}</a>
         </li>
     {% endfor %}
+    <li class="waves-effect"><a href="?page={{ page }}{{ getvars }}"><i class="material-icons">chevron_right</i></a></li>
 </ul>

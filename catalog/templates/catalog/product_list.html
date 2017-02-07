@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 
 {% load pagination %}
-
-{% block title %}
-    Listagem de produto | {{ block.super}}
-{% endblock %}
+{% block title %} Listagem de produto | {{ block.super}} {% endblock %}
+{% block corHeader %} amber {% endblock corHeader %}
 
 {% block content %}
-
     <div class="container">
         <h1 class="header">Produtos</h1>
     </div>
 
     <div class="row">
         {% for product in product_list %}
-
             {% include "catalog/_product.html" %}
         {% empty %}
             <h3>Desculpe, não temos nenhum produto cadastrado no momento</h3>
@@ -24,11 +20,11 @@
     <div class="container">
         {% pagination request paginator page_obj %}
     </div>
-
 {% endblock %}
 
 {% block scripts %}
     <script>
+        /* para carregar o zoom */
         $(document).ready(function(){
             $('.materialboxed').materialbox();
         });
