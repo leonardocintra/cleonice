@@ -7,4 +7,4 @@ class FormContact(forms.Form):
 	name = forms.CharField(label='Nome', widget=forms.TextInput())
 	email = forms.EmailField(label='Email', widget=forms.TextInput())
 	phone = forms.CharField(label='Telefone', max_length=13, widget=forms.TextInput())
-	message = forms.CharField(label='Mensagem', widget=forms.Textarea(), max_length=500)
+	message = forms.CharField(label='Mensagem', widget=forms.Textarea(attrs={'class': 'materialize-textarea'}), max_length=500 )
