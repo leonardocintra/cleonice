@@ -6,7 +6,7 @@ from django.core import mail
 class IndexViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.url = reverse('home')
+        self.url = reverse('index')
     
     def tearDown(self):
         pass
@@ -14,6 +14,7 @@ class IndexViewTestCase(TestCase):
     def test_template_used(self):
         response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'index.html')
+
 
     def test_status_code(self):
         response = self.client.get(self.url)
@@ -42,4 +43,3 @@ class ContactViewTestCase(TestCase):
         self.assertFormError(response, 'form', 'name', 'Este campo é obrigatório.')
         self.assertFormError(response, 'form', 'email', 'Este campo é obrigatório.')
         self.assertFormError(response, 'form', 'message', 'Este campo é obrigatório.')
-    

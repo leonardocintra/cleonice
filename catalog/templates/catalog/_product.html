@@ -1,15 +1,8 @@
-<div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-        <a href="{{ product.get_absolute_url}}">
-            <img src="http://placehold.it/350x250" alt="{{ product.name }}" />
-        </a>
-        <div class="caption">
-            <h3>{{ product.name }}</h3>
-            
-            <p>{{ product.description|linebreaks }}</p>
-            <p>
-                <a href="{{ product.get_absolute_url }}" class="btn btn-success" role="button">Detalhes</a>                 
-            </p>
-        </div>
+<div class="col s12 col m2 col l4 ">
+    <img class="materialboxed" src="http://placehold.it/350x250" alt="{{ product.name }}" />
+    <div>
+        <a href="{{ product.get_absolute_url }}"> <h5 class="header center">{{ product.name }}</h5> </a>
+        <p class="center">
+            {{ product.description }}</p>
     </div>
 </div>

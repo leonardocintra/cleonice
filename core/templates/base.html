@@ -1,10 +1,28 @@
-﻿<html>
+﻿{% load cloudinary %}
+{% load global_util %}
+
+<!DOCTYPE html>
+<html>
 <head>
-    <title> {% block title %} Bolos da Cleonice {% endblock title %}</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
-    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
-    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Site de bolos da Cleonice">
+    <meta name="author" content="Leonardo Nascimento Cintra">
+
+    {% load static %}
+
+    <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
+
+    <title> {% block title %} Home {% endblock title %} - Biscoitos da Cleo</title>
+
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/materialize/css/materialize.min.css' %}" />
+
+    {% block css %}
+    
+    {% endblock css %}
 
     <!-- Google Analitics -->
     <script>
@@ -18,49 +36,29 @@
         ga('create', 'UA-71818757-1', 'auto');
         ga('send', 'pageview');
     </script>
-
-    {% block styles %}{% endblock %}
 </head>
-
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Bolos e Biscoitos da Cleo</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'catalog:category' 'bolos' %}">Bolos</a></li>
-                    <li><a href="#">Biscoitos</a></li>
-                    <li><a href="{% url 'about' %}">Sobre</a></li>
-                    <li><a href="{% url 'contact' %}">Contato</a></li>
-                </ul>
-                {% include "includes/linkAdmin.html" %}
-            </div>
-        </div>
-    </div>
 
-    <div class="container body-content">
-        {% block content %}
-        {% endblock %}
-        <hr />
-        <footer>
-            <p>&copy; {% now "Y" %} - Bolos e biscoitos da Cleo - Todos os direitos reservados</p>
-            {% include "includes/facebook.html" %}
-        </footer>
-    </div>
+    <nav class="pink {% block corHeader %} lighten-3 {% endblock corHeader %}" role="navigation">
+        {% include "includes/navHeader.html" %}
+    </nav>
 
-    <script src="/static/scripts/jquery-1.10.2.js"></script>
-    <script src="/static/scripts/bootstrap.js"></script>
-    <script src="/static/scripts/respond.js"></script>
-    
-    {% block scripts %}{% endblock %}
+    {% block content %} {% endblock content %}
 
+    <!-- FOOTER -->
+    {% include "includes/footer.html" %}
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static '/materialize/js/materialize.min.js' %}"></script>
+    <script type="text/javascript">
+        /* aqui é para o menu da versao mobile */
+        (function($){
+            $(function(){
+                $('.button-collapse').sideNav();
+            }); // end of document ready
+        })(jQuery); // end of jQuery name space
+    </script>
+    {% block scripts %}{% endblock scripts %}
 </body>
 </html>
