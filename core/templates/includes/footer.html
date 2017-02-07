@@ -1,0 +1,34 @@
+ <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"><i class="material-icons">cake</i> Bolos e biscoitos da Cleo</h5>
+          <p class="grey-text text-lighten-4">Somos uma "empresa caseira" que há mais de 15 anos fazemos biscoitos e bolos para festas de aniversários, casamentos e noivados. Trabalhamos com carinho e amor, é uma empresa da familia Rodrigues.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"><i class="material-icons">perm_device_information</i> Produtos</h5>
+          <ul>
+            <li><a class="white-text" href="{% url 'contact' %}"><i class="material-icons">cake</i> Bolos</a></li>
+            <li><a class="white-text" href="{% url 'contact' %}"><i class="material-icons">free_breakfast</i> Biscoitos</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"><i class="material-icons">contact_mail</i> Informações </h5>
+          <ul>
+            <li><a class="white-text" href="{% url 'contact' %}"><i class="material-icons">phone</i> (16) 99999-9999</a></li>
+            <li><a class="white-text" href="{% url 'contact' %}"><i class="material-icons">email</i> Enviar mensagem</a></li>
+            <li><a class="white-text" href="#!"><i class="material-icons">location_on</i> Onde fica?</a></li>
+            <li><a class="white-text" href="#!"><i class="material-icons">account_balance</i> Como surgiu?</a></li>
+            <li><a class="white-text" href="#!"><i class="material-icons">people_outline</i> A equipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2016 - {% now "Y" %} Bolos e Biscoitos da Cleo &middot;
+      </div>
+    </div>
+  </footer>
