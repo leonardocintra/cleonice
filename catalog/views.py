@@ -5,6 +5,9 @@ from .models import Product, Category, ProductImage
 
 
 class ProductListView(generic.ListView):
+    """
+    Lista TODOS os produtos
+    """
     model = Product
     template_name = 'catalog/product_list.html'
     context_object_name = 'product_list'
