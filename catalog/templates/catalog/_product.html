@@ -1,12 +1,11 @@
 <div class="col s12 col m2 col l4 ">
     <img class="materialboxed" src="http://placehold.it/350x250" alt="{{ product.name }}" />
     <div>
-        <h4 class="header">{{ product.name }}</h4 cl>
-        
-        <p>{{ product.description|linebreaks }}</p>
+        <h5 class="header">{{ product.name }}</h5>
         <p>
-            <a href="#" class="btn btn-success" role="button">Detalhes</a>                 
+            {{ product.description|linebreaks }}</p>
+        <p>
+            <a href="{{ product.get_absolute_url }}" class="btn btn-success" role="button">Detalhes</a>                 
         </p>
     </div>
 </div>
-{#{{ product.get_absolute_url }}#}
