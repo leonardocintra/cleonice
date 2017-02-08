@@ -46,7 +46,7 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = CloudinaryField('Imagem', blank=True, null=True)
     description = models.CharField('Descrição', max_length=200, blank=True, default='')
 
