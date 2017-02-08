@@ -24,7 +24,7 @@ class CategoryListView(generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Product.objects.filter(category__slug=self.kwargs['slug'])
+        return Product.objects.prefetch_related('images').filter(category__slug=self.kwargs['slug'])
 
     def get_context_data(self, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)
@@ -38,8 +38,10 @@ class CategoryListView(generic.ListView):
 
 def product(request, slug):
     product = Product.objects.get(slug=slug)
+    images = product.images.all()
     context = {
-        'product': product
+        'product': product,
+        'images': "ROBINHO"
     }
     return render(request, 'catalog/product.html', context)
 

@@ -1,5 +1,9 @@
 <div class="col s12 col m2 col l4 ">
-    <img class="materialboxed" src="http://placehold.it/350x250" alt="{{ product.name }}" />
+    {% for itemImage in  product.images.all %}
+        {% if forloop.first %}
+            <img class="materialboxed" src="{{ itemImage.image.url }}" alt="{{ product.name }}" width="350" height="250" />
+        {% endif %}
+    {% endfor %}
     <div>
         <a href="{{ product.get_absolute_url }}"> <h5 class="header center">{{ product.name }}</h5> </a>
         <p class="center">
