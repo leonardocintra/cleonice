@@ -40,6 +40,7 @@ If you don't have a Cloudinary account yet, [click here](https://cloudinary.com/
 
 ## Site
 - [Bolos e Biscoitos da Cleo](https://cleonice-prod.herokuapp.com/)
+- Stage: http://cleonice-stage.herokuapp.com/
 
 ## Contact 
 - [See contact forms on the web site](https://cleonice-prod.herokuapp.com/contato/)
