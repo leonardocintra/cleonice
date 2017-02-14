@@ -24,15 +24,12 @@ class CategoryListView(generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
+        """ Busca os produtos com a imagem (prefetch_related)"""
         return Product.objects.prefetch_related('images').filter(category__slug=self.kwargs['slug'])
 
     def get_context_data(self, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)
         context['current_category'] = get_object_or_404(Category, slug=self.kwargs['slug'])
-        # tenho a categoria
-        # pela categoria consigo achar os produtos
-        # achando os produto consigo achar as imagens
-        # e ai como que faz ?
         return context
 
 
